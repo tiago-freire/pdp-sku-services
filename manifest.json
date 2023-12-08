@@ -1,7 +1,7 @@
 {
   "vendor": "ssesandbox04",
   "name": "pdp-sku-services",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "title": "PDP SKU Services",
   "description": "Show a modal at PDP in order to choice among SKU Services if exists",
   "builders": {
