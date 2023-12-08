@@ -1,0 +1,35 @@
+.addToCartInterceptorItems {
+  --items-gap: 2rem;
+  --item-max-width: 45%;
+  --item-min-width: 250px;
+  --shadow-blur: 16px;
+  --shadow-blur-selected: calc(var(--shadow-blur) / 2);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-selected: #000;
+  --shadow-color-hover: rgba(0, 0, 0, 0.25);
+  --list-marker-content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M15.5 0.99939L5.43867 15.3721C5.30592 15.5628 5.12974 15.7193 4.92465 15.8286C4.71956 15.9379 4.49143 15.9969 4.25907 16.0007C4.0267 16.0046 3.79675 15.9532 3.58816 15.8507C3.37957 15.7482 3.19832 15.5977 3.05933 15.4114L0.5 11.9994' stroke='%2307AC07' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  gap: var(--items-gap);
+}
+
+.addToCartInterceptorItem {
+  box-shadow: 0px 0px var(--shadow-blur) var(--shadow-color);
+  max-width: var(--item-max-width);
+  min-width: var(--item-min-width);
+  border: 3px solid transparent;
+}
+
+.addToCartInterceptorItemSelected {
+  box-shadow: 0px 0px var(--shadow-blur-selected) var(--shadow-color-selected);
+  border-color: var(--shadow-color-selected);
+}
+
+.addToCartInterceptorItem:hover:not(.addToCartInterceptorItemSelected) {
+  box-shadow: 0px 0px var(--shadow-blur) var(--shadow-color-hover);
+}
+
+.addToCartInterceptorListItem::marker {
+  content: var(--list-marker-content);
+}
+
+

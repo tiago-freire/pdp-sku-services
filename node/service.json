@@ -1,0 +1,25 @@
+{
+  "memory": 1024,
+  "ttl": 1440,
+  "timeout": 60,
+  "cpu": {
+    "type": "shared",
+    "value": 5,
+    "scalingPercentage": 20
+  },
+  "minReplicas": 8,
+  "maxReplicas": 80,
+  "workers": 1,
+  "routes": {
+    "skuServices": {
+      "path": "/_v/pdp-sku-services/:skuId",
+      "public": true,
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": ["get", "options"]
+        }
+      ]
+    }
+  }
+}

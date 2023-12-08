@@ -1,0 +1,6 @@
+{
+  "add-to-cart-service-interceptor": {
+    "component": "AddToCartServiceInterceptor",
+    "allowed": "*"
+  }
+}

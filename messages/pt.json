@@ -1,4 +1,6 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "store/service.modal.title": "O produto já foi adicionado ao carrinho! Que tal acrescentar um <b>seguro</b> e uma <b>garantia</b>?",
+  "store/service.button.yes.plural": "Incluir serviços no carrinho",
+  "store/service.button.yes.singular": "Incluir serviço no carrinho",
+  "store/service.button.no": "Não, obrigado"
 }
