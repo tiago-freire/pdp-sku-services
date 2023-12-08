@@ -2,7 +2,7 @@
 
 # Switch Styles
 
-Show a modal at PDP in order to choice among SKU Services if exists.
+Shows a modal at PDP in order to choice among SKU Services if they exist.
 
 <!-- DOCS-IGNORE:start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->

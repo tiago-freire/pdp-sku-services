@@ -3,7 +3,7 @@
   "name": "pdp-sku-services",
   "version": "0.0.1",
   "title": "PDP SKU Services",
-  "description": "Show a modal at PDP in order to choice among SKU Services if exists",
+  "description": "Shows a modal at PDP in order to choice among SKU Services if they exist",
   "builders": {
     "react": "3.x",
     "node": "6.x",
