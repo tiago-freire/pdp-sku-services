@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { FormattedCurrency } from 'vtex.format-currency'
@@ -59,28 +59,41 @@ const AddToCartServiceInterceptor = (props: Props) => {
   )
 
   const selectedItemIdInCart = selectedItemInCart?.id
-  const quantity = selectedItemInCart?.quantity
+  const quantity = selectedItemInCart?.quantity ?? 0
   const bundleItems = selectedItemInCart?.bundleItems
 
   const [selected, setSelected] = useState<Set<number>>(new Set())
   const [open, setOpen] = useState(false)
+  const [justOpened, setJustOpened] = useState(false)
+
+  useEffect(() => {
+    if (!quantity) {
+      setJustOpened(false)
+    }
+  }, [quantity])
+
+  const handleAddToCart = (item: { skuId: string }) => {
+    if (
+      justOpened ||
+      item.skuId !== selectedItemId ||
+      quantity > 1 ||
+      bundleItems?.length ||
+      !skuServices?.length
+    ) {
+      return
+    }
+
+    setSelected(new Set())
+    setOpen(true)
+    setJustOpened(true)
+  }
 
   usePixelEventCallback({
     eventName: 'addToCart',
-    handler(e) {
+    handler: (e) => {
       const [item] = e?.data?.items
 
-      if (
-        item.skuId === selectedItemId &&
-        selectedItemIdInCart &&
-        selectedItemId === selectedItemIdInCart &&
-        quantity === 1 &&
-        !bundleItems?.length &&
-        skuServices?.length
-      ) {
-        setSelected(new Set())
-        setOpen(true)
-      }
+      handleAddToCart(item)
     },
   })
 
